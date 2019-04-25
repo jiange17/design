@@ -2,6 +2,7 @@ package main
 
 import (
 	"xcq.org/design/observer"
+	"xcq.org/design/strategy"
 )
 
 func TestObserver() {
@@ -15,6 +16,14 @@ func TestObserver() {
 	kafka.SetMessage("拜拜，收不到了。")
 }
 
+func TestStrategy() {
+	xcq := strategy.NewPeople()
+	xcq.Weapon.Display()
+	xcq.Weapon = strategy.NewSword()
+	xcq.Weapon.Display()
+}
+
 func main() {
 	TestObserver()
+	TestStrategy()
 }
